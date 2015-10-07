@@ -1,0 +1,36 @@
+{
+  "manifest_version": 2,
+
+  "name": "Trello background changer",
+  "description": "This extension will change Trello background color or image as you want",
+  "version": "1.0",
+
+  "page_action": {
+    "default_icon": {
+          "19": "icon19.png",
+          "38": "icon38.png" 
+      },
+    "default_popup": "popup.html",
+    "default_title": "Trello background changer"  
+  },
+
+  "icons" : {"128" : "icon128.png"},
+
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["https://trello.com/*"],
+      "js": ["jquery-1.11.3.min.js"]
+    }
+  ],
+
+  "permissions": [
+    "activeTab",
+    "declarativeContent",
+    "storage"
+  ]
+}
