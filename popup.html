@@ -11,14 +11,8 @@
       body {
         font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
         font-size: 100%;
-        min-width: 300px;
-      }
-      #status {
-        /* avoid an excessively wide status text */
-        white-space: pre;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        max-width: 400px;
+        min-width: 400px;
+        max-width: 900px;
       }
 
       #saveBtn {
@@ -26,6 +20,46 @@
         float: right;
       }
 
+      .input-group:not(:first-child) {
+        margin-top: 5px;
+      }
+
+    </style>
+
+    <style type="text/css" for="Trello" display="none">
+body, button, html, input, select, textarea {
+color: #fff;
+}
+.list {
+color: white;
+background: rgba(0,0,0,.1);
+}
+.list-card {
+border: none;
+background-color: rgba(0,0,0,.2);
+}
+.list-card a {
+color: white;
+}
+.list-card.active-card {
+background-color: rgba(0,0,0,.25);
+}
+.open-card-composer:hover {
+background-color: rgba(0,0,0,.2);
+color: white;
+text-decoration: underline;
+}
+.dialog-close-button {
+color: rgba(255,255,255,.3);
+}
+.card-detail-item-header-edit, .card-detail-item-header, .icon-lg, .icon-sm {
+color: #ddd;
+}
+.window {
+background-color: rgba(0,0,0,.6);
+}
+
+body, button, html, input, select, .field{ color: #dedede; } .list { color: white; background: rgba(0,0,0,.1); } .list-card { border: none; background-color: rgba(0,0,0,.2); } .list-card a { color: white; } .list-card.active-card, .action-comment, .markeddown pre { background-color: rgba(0,0,0,.25); } .open-card-composer:hover { background-color: rgba(0,0,0,.2); color: white; text-decoration: underline; } .dialog-close-button { color: rgba(255,255,255,.3); } .card-detail-item-header-edit, .card-detail-item-header, .icon-lg, .icon-sm { color: #adadad; } .window { background-color: rgba(0,0,0,.6); } .markeddown code {background-color:transparent;}
     </style>
 
     <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
@@ -42,8 +76,12 @@
   </head>
   <body>
     <div class="input-group">
-      <span class="input-group-addon" id="sizing-addon1">@Bgr</span>
+      <span class="input-group-addon">@Bgr</span>
       <input type="text" class="form-control" id="trelloBgr" aria-label="..." placeholder="Image Url or CSS Color">
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon">@Css</span>
+      <input type="text" class="form-control" id="trelloCss" aria-label="..." placeholder="CSS object for your Trello">
     </div>
     <input type="button" value="Save" class="btn btn-primary" id="saveBtn">
   </body>

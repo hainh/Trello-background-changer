@@ -1,13 +1,16 @@
 document.addEventListener('DOMContentLoaded', function() {
-  $("#saveBtn").click(function () {
-    var bgr = $("#trelloBgr").val();
-    chrome.storage.sync.set({"bgr" : bgr}, excute);
-  });
+    $("#saveBtn").click(function () {
+        var bgr = $("#trelloBgr").val();
+        var css = $("#trelloCss").val();
+        chrome.storage.sync.set({"bgr" : bgr, "css" : css}, excute);
 
-  chrome.storage.sync.get("bgr", function(bgr) {
-    console.log("bgr", bgr);
-    $("#trelloBgr").val(bgr["bgr"]);
-  });
+    });
+
+    chrome.storage.sync.get(["bgr", "css"], function(data) {
+        console.log("bgr ", data);
+        $("#trelloBgr").val(data["bgr"]);
+        $("#trelloCss").val(data["css"]);
+    });
 });
 
 function excute() {
